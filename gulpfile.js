@@ -12,15 +12,15 @@ gulp.task('hello', function(done) {
 gulp.task('browser-sync', function() {
   browserSync.init({
       server: {
-          baseDir: "./"
+          baseDir: "./src"
       }
   });
-  gulp.watch("./*.html").on('change', browserSync.reload);
+  gulp.watch("./src/*.html").on('change', browserSync.reload);
 });
 
 gulp.task('mincss', function() {
-  return gulp.src("./*.css")
+  return gulp.src("./src/css/*.css")
   .pipe(rename({suffix: ".min"}))
   .pipe(cleanCSS())
-  .pipe(gulp.dest("app/css"));
+  .pipe(gulp.dest("./src/css"));
 });
